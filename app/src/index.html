@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>基于以太坊的拍卖系统_alpha</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="https://blog.huangwx.cn/css/sweetalert.css">
+    <script type="text/javascript" src="https://blog.huangwx.cn/js/sweetalert-dev.js"></script>
+  </head>
+
+  <style>
+    .login-button {
+      width: 270px;
+      height: 40px;
+      border-width: 0px;
+      border-radius: 3px;
+      background: #1E90FF;
+      cursor: pointer;
+      outline: none;
+      font-family: Microsoft YaHei;
+      color: white;
+      font-size: 17px;
+    }
+    .login-button:hover { 
+      background: #5599FF;
+    }
+    .ex{
+      color:white;
+    }
+    input{
+      border: 1px solid #ccc;
+      padding: 7px 0px;
+      border-radius: 3px;
+      padding-left:5px;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+      box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+      -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+      -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+      transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+    }
+    input:focus{
+            border-color: #66afe9;
+            outline: 0;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+    }
+  </style>
+
+<body background="./-3e6d20771ac44114.png" class="ex">
+<center>
+<script src="index.js"></script>
+ 
+<h1>基于以太坊的拍卖系统</h1>
+<p>All System developed by Streich. Copyright reserved ©2002-2021.</p>
+<br>
+<h3>添加拍卖品</h3>
+<label for="name">商品名称</label>
+    <input type="text" id="name" placeholder="输入商品名称" />
+    <label for="category">商品类别</label>
+    <input type="text" id="category" placeholder="输入商品类别" />
+    <label for="start_price">起拍价格</label>
+    <input type="text" id="start_price" placeholder="输入起拍价格" />
+    <label for="auction_time">拍卖时长</label>
+    <input type="text" id="auction_time" placeholder="输入拍卖时长" />
+    <button class="login-button" onclick="App.addProductToStore()">添加商品</button>
+    <br><br>
+
+    <h3>以个人身份投标</h3>
+    <label for="bid_index">商品序号</label>
+    <input type="text" id="bid_index" placeholder="输入商品序号" />
+    <label for="bid_address">出价人公钥</label>
+    <input type="text" id="bid_address" placeholder="输入公钥" />
+    <label for="bid_price">出价</label>
+    <input type="text" id="bid_price" placeholder="出价" />
+    <button class="login-button" onclick="App.bid()">确认并出价</button>
+    <br><br>
+
+    <h3>查询个人钱包</h3>
+    <label for="search_address">待查询公钥</label>
+    <input type="text" id="search_address" placeholder="输入需要查询的公钥" />
+    <button class="login-button" onclick="App.search()">点击以查询</button>
+    <br><br>
+
+    <h3>一键揭标</h3>
+    <label for="reveal_index">商品序号</label>
+    <input type="text" id="reveal_index" placeholder="输入商品序号" />
+    <label for="reveal_address">揭标人公钥</label>
+    <input type="text" id="reveal_address" placeholder="输入公钥" />
+    <label for="reveal_price">揭标价格</label>
+    <input type="text" id="reveal_price" placeholder="请确认揭标价格" />
+    <button class="login-button" onclick="App.revealBid()">一键揭标</button>
+    <br><br>
+
+    <h3>查询商品信息</h3>
+    <label for="search_index">输入待查询商品序号</label>
+    <input type="text" id="search_index" placeholder="输入需要查询的序号" />
+    <button class="login-button" onclick="App.getProduct()">点击以查询</button>
+    <br><label id="sr_index" for"sr_index">  序号：</label>
+    <br><label id="sr_name" for"sr_name">名称：</label>
+    <br><label id="sr_category" for"sr_category">  分类：</label>
+    <br><label id="sr_startTime" for"sr_startTime">  起拍时间：</label>
+    <br><label id="sr_endTime" for"sr_endTime">  结束时间：</label>
+    <br><label id="sr_status" for"sr_status">  状态：</label>
+    <br><label id="sr_startPrice" for"sr_startPrice">  当前价格：</label>
+    <br><br>
+
+    <h3>查询赢家信息</h3>
+    <label for="show_index">输入待查询商品序号</label>
+    <input type="text" id="show_index" placeholder="输入需要查询的序号" />
+    <button class="login-button" onclick="App.highestBidderInfo()">点击以查询</button>
+    <p>
+      <strong>Tips:</strong> The system is still under development!
+    </p>
+
+
+
+  </center>
+  </body>
+
+
+
+</html>
